@@ -1,0 +1,134 @@
+html {
+    font-size: 32px;
+}
+
+* {
+    margin: 0 auto;
+    font-family: 'Londrina Solid', Arial, Helvetica, sans-serif;
+    text-align: center;
+    /* box-sizing: border-box; */
+}
+
+.page-container {
+    position: relative;
+    width: 100vw;
+    max-width: 470px;
+    height: 90vh;
+    margin-top: 5vh;
+    /* max-height: 800px; */
+    border: solid #777;
+    padding: 10px;
+}
+
+    
+h1 {
+    font-family: 'Londrina Outline', Arial, Helvetica, sans-serif;
+}
+
+h1#primary {
+    font-size: 4rem;
+    margin: 0;
+    padding: 0;
+}
+
+h1#secondary {
+    font-size: 3rem;
+}
+
+h3 {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    color: #222;
+}
+
+p {
+    margin-top: 1rem;
+    line-height: 1rem;
+}
+
+
+button {
+    position: absolute;
+    bottom: 10px;
+    transform: translateX(-50%);
+    font-size: .8rem;
+    padding: 10px;
+    background: #fdfd96;
+    border-radius: 5%;
+    color: #000;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+div.btn-container {
+    display: flex;
+    width: 95%;
+    margin-top: .5rem;
+}
+
+.btn-container img {
+    width: 130px;
+}
+
+.opponent-btn,
+.select-player-btn {
+    width: 40%;
+    background: #b0c4de;
+    padding: 5px;
+    border-radius: 3%;
+    border: none;
+}
+
+.opponent-btn p {
+    margin: 0;
+    font-size: .9rem;
+}
+
+.select-player-btn {
+    font-size: 3rem;
+    padding-top: 15%;
+    width: 125px;
+    height: 125px;
+}
+
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 120px;
+    margin: 0 auto;
+    width: 80%;
+    grid-gap: 10px;
+}
+
+.cell {
+    background: burlywood;
+    width: 100%; 
+    font-size: 3rem;
+}
+
+img#in-game-img {
+width: 95px;
+}
+
+
+#winner-msg {
+    font-size: 1.5rem;
+}
+
+#opponent-comment {
+    font-size: .7rem;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+#opponent-msg {
+    
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin-top: 20px;
+    padding: 0;
+    line-height: .7rem;
+
+}

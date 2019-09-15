@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Londrina+Outline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Londrina+Solid&display=swap" rel="stylesheet">
+    <title>tic-tac-toe</title>
+</head>
+
+<body>
+
+    <div id="start-page" class="page-container">
+        <h1 id="primary">TIC TAC TOE</h1>
+        <div class="mid-page-container">
+            <h3>CHOOSE YOUR OPPONENT</h3>
+            <div class="btn-container" id="opponent-btns">
+                <div id="einstein-btn" class="opponent-btn">
+                    <img src="images/einstein-tongue.jpg" alt="Albert Einstein image">
+                    <p>Albert<br>Einstein </p>
+                </div>
+                <div id="trump-btn" class="opponent-btn">
+                    <img src="images/trump.png" alt="Donald Trump image">
+                    <p>Donald<br>Trump</p>
+                </div>
+            </div>
+        </div>
+        <button id="next-btn">next</button>
+    </div>
+
+    <div id="trump-page" class="page-container">
+        <h1 id="secondary">TIC TAC TOE</h1>
+        <div class="mid-page-container">
+            <h3>CHOOSE YOUR PLAYER</h3>
+            <p>"X" goes first</p>
+            <br>
+            <p>If you don't let Trump go first he will accuse you of being un-American and tweet about deporting your
+                grandmother</p>
+            <br>
+            <p>just let Trump be "X"</p>
+            <p>you will be "O"</p>
+        </div>
+        <button class="play-game-btn">play game</button>
+    </div>
+    <div id="einstein-page" class="page-container">
+        <h1 id="secondary">TIC TAC TOE</h1>
+        <div class="mid-page-container">
+            <h3>CHOOSE YOUR PLAYER</h3>
+            <p>"X" goes first</p>
+        </div>
+        <div class="btn-container">
+            <div class="choose-opponent-btn">
+                <p>X</p>
+            </div>
+            <div class="choose-opponent-btn">
+                <p>O</p>
+            </div>
+        </div>
+        <button class="play-game-btn">play game</button>
+    </div>
+
+
+    <div id="game-page" class="page-container">
+        <h1 id="secondary">TIC TAC TOE</h1>
+        <div id="grid-container">
+            <div id=00 class="cell"></div>
+            <div id=01 class="cell"></div>
+            <div id=02 class="cell"></div>
+            <div id=10 class="cell"></div>
+            <div id=11 class="cell"></div>
+            <div id=12 class="cell"></div>
+            <div id=20 class="cell"></div>
+            <div id=21 class="cell"></div>
+            <div id=22 class="cell"></div>
+        </div>
+
+
+        <div class="game-msg-container">
+            <p id="winner-msg"></p>
+            <div id="opponent-msg">
+                <img id="in-game-img">
+                <p id="opponent-comment"></p>
+            </div>
+        </div>
+        <button class="play-again-btn">play again</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
