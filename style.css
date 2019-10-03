@@ -1,134 +1,201 @@
 html {
-    font-size: 32px;
+    font-size: 28px;
 }
 
 * {
     margin: 0 auto;
     font-family: 'Londrina Solid', Arial, Helvetica, sans-serif;
+    color: #188;
     text-align: center;
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
 }
 
 .page-container {
     position: relative;
     width: 100vw;
     max-width: 470px;
-    height: 90vh;
-    margin-top: 5vh;
-    /* max-height: 800px; */
-    border: solid #777;
-    padding: 10px;
+    height: 100vh;
+    max-height: 620px;
+    padding: 3px 0;
 }
 
-    
+.mid-page-container {
+    position: absolute;
+    top: 45%;
+    left: 2.5%;
+    transform: translateY(-50%);
+    width: 95%;
+}
+
 h1 {
     font-family: 'Londrina Outline', Arial, Helvetica, sans-serif;
-}
-
-h1#primary {
-    font-size: 4rem;
-    margin: 0;
-    padding: 0;
-}
-
-h1#secondary {
-    font-size: 3rem;
+    font-size: 2.4rem;
+    color: #e07;
 }
 
 h3 {
-    margin-top: 1.5rem;
+    margin: 1rem auto .5rem;
     font-size: 1.2rem;
-    color: #222;
+    line-height: 1.2rem;
+    color: #519;
 }
 
 p {
-    margin-top: 1rem;
-    line-height: 1rem;
+    margin-top: 20px;
+    /* font-size: rem; */
+    color: #444;
 }
 
-
-button {
-    position: absolute;
-    bottom: 10px;
-    transform: translateX(-50%);
-    font-size: .8rem;
-    padding: 10px;
-    background: #fdfd96;
-    border-radius: 5%;
-    color: #000;
-    text-decoration: none;
-    border: none;
-    outline: none;
-}
-
-div.btn-container {
+.btn-container,
+.phone-container {
     display: flex;
-    width: 95%;
-    margin-top: .5rem;
+    margin-top: .2rem;
+    width: 80%;
 }
 
 .btn-container img {
-    width: 130px;
+    width: 85%;
+    border-radius: 50%;
 }
 
-.opponent-btn,
-.select-player-btn {
+.phone-container {
+    margin-top: 80px;
+}
+
+.phone-container img {
+    width: 120px;
+    border-radius: 50%;
+
+}
+
+#trump-phone {
+    margin-top: 4rem;
+}
+
+#trump-phone,
+#putin-phone {
+    visibility: hidden;
+}
+
+.opponent-btns {
     width: 40%;
-    background: #b0c4de;
     padding: 5px;
+    cursor: pointer;
+    border-radius: 3%;
+    /* border: solid #fc0 .5px; */
+}
+
+.opponent-btns p {
+    margin: 0;
+    font-size: .8rem;
+    line-height: .8rem;
+    color: #188;
+}
+
+.player-btns {
+    margin-top: 1rem;
+    line-height: 100px;
+    width: 100px;
+    height: 100px;
+    font-size: 3rem;
+    cursor: pointer;
+    border-radius: 3%;
+    border: solid #fc0 .5px;
+}
+
+button {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80vw;
+    max-width: 300px;
+    font-size: .7rem;
+    color: #e07;
+    background: #fc0;
     border-radius: 3%;
     border: none;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
 }
 
-.opponent-btn p {
-    margin: 0;
-    font-size: .9rem;
-}
-
-.select-player-btn {
-    font-size: 3rem;
-    padding-top: 15%;
-    width: 125px;
-    height: 125px;
-}
-
-#grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 120px;
+#board-UI {
     margin: 0 auto;
-    width: 80%;
-    grid-gap: 10px;
+    width: 75vw;
+    max-width: 300px;
+    height: 75vw;
+    max-height: 300px;
 }
 
-.cell {
-    background: burlywood;
-    width: 100%; 
-    font-size: 3rem;
+table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
 }
 
-img#in-game-img {
-width: 95px;
+td {
+    border: solid #fc0 4px;
+    width: 80px;
+    max-width: 130px;
+    height: 80px;
+    max-height: 130px;
+    cursor: pointer;
+    font-size: 2rem;
+    line-height: 2rem;
+    color: #188;
 }
 
+table tr:first-child td {
+    border-top: 0;
+}
+
+table tr:last-child td {
+    border-bottom: 0;
+}
+
+table tr td:first-child {
+    border-left: 0;
+}
+
+table tr td:last-child {
+    border-right: 0;
+}
 
 #winner-msg {
-    font-size: 1.5rem;
+    font-size: 1rem;
+    color: #04afbf;
 }
 
 #opponent-comment {
-    font-size: .7rem;
-    text-align: left;
-    padding: 0;
-    margin: 0;
+    margin: 0 auto;
+    font-size: .6rem;
+    line-height: .6rem;
+    color: #519;
+    width: 80vw;
+    max-width: 300px;
 }
 
-#opponent-msg {
-    
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    margin-top: 20px;
-    padding: 0;
-    line-height: .7rem;
-
+img#in-game-img {
+    width: 75px;
+    max-width: 90px;
+    border-radius: 50%;
 }
+
+#call-putin-page {
+    background: #000;
+}
+
+@media (min-width: 375px) {
+   td {
+       font-size: 2.5rem;
+   }
+}
+
+@media (min-width: 768px) {
+   .page-container {
+       border: solid #aaa 1px;
+       margin-top: 1rem;
+   }
+ }
+ 

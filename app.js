@@ -1,284 +1,374 @@
-// UI person AND CHARACTERS
+// UI
+const winnerMsg = document.querySelector('#winner-msg');
+const opponentComment = document.querySelector('#opponent-comment');
+const inGameImg = document.querySelector('#in-game-img');
 const startPage = document.querySelector('#start-page');
-const trumpPage = document.querySelector('#trump-page');
-trumpPage.style.display = 'none';
-const einsteinPage = document.querySelector('#einstein-page');
-einsteinPage.style.display = 'none';
-const gamePage = document.querySelector('#game-page');
-gamePage.style.display = 'none';
+const gamePage = document.querySelector(`#game-page`);
 
-document.addEventListener('DOMContentLoaded', chooseOpponent)
-let opponent = '';
+
+let opponent,
+    human = 'O',
+    puter = 'X';
+
+document.addEventListener('DOMContentLoaded', () => {
+    const pages = document.querySelectorAll('.page-container')
+    for (let page of pages) {
+        page.style.display = 'none';
+    }
+    startPage.style.display = 'block';
+    chooseOpponent();
+    startDefaults();
+});
 
 function chooseOpponent() {
     const einsteinBtn = document.querySelector('#einstein-btn');
-    const trumpBtn = document.querySelector('#trump-btn');
     einsteinBtn.addEventListener('click', () => {
-        einsteinBtn.style.border = 'solid red 2px';
-        trumpBtn.style.border = 'none';
-        return opponent = 'Einstein';
+        einsteinBtn.style.background = '#fc0';
+        trumpBtn.style.background = 'none';
+        opponent = 'einstein';
+        nextBtn.style.visibility = 'visible';
     })
+    const trumpBtn = document.querySelector('#trump-btn');
     trumpBtn.addEventListener('click', () => {
-        trumpBtn.style.border = 'solid red 2px'
-        einsteinBtn.style.border = 'none';
-        return opponent = 'Trump';
+        trumpBtn.style.background = '#fc0';
+        einsteinBtn.style.background = 'none';
+        opponent = 'trump';
+        nextBtn.style.visibility = 'visible';
     })
 }
 
-document.querySelector('#next-btn').addEventListener('click', () => {
-    if (opponent == '') {
-        // some kinda animated UI goes here
-        return
+const nextBtn = document.querySelector('#next-page-btn');
+nextBtn.addEventListener('click', () => {
+    if (opponent == undefined) {
+        return;
     }
+    document.querySelector(`#${opponent}-page`).style.display = 'block';
     startPage.style.display = 'none';
-    if (opponent == 'Einstein') {
-        einsteinPage.style.display = 'block';
-        choosePlayer();
-    } else {
-        trumpPage.style.display = 'block'
-    }
+    choosePlayer();
+    playGameBtn();
 })
 
-let person = 'O',
-    puter = 'X';
-
 function choosePlayer() {
-    const chooseOpponentBtns = document.querySelectorAll('.choose-opponent-btn');
-    for (chooseOpponentBtn of chooseOpponentBtns) {
-        chooseOpponentBtn.addEventListener('click', (e) => {
-            if (e.target.innerText == 'X') {
-                return person = 'X', puter = 'O';
-            }
+    const humanX = document.querySelector('#human-X');
+    humanX.addEventListener('click', () => {
+        human = 'X';
+        puter = 'O';
+        humanX.style.background = '#fc0';
+        humanO.style.background = 'none';
+    })
+    const humanO = document.querySelector('#human-O');
+    humanO.addEventListener('click', () => {
+        human = 'O';
+        puter = 'X';
+        humanO.style.background = '#fc0';
+        humanX.style.background = 'none';
+    })
+}
+
+const btns = document.querySelectorAll('.play-game-btn');
+
+function playGameBtn() {
+    for (let btn of btns) {
+        btn.addEventListener('click', () => {
+            document.querySelector(`#${opponent}-page`).style.display = 'none';
+            gamePage.style.display = 'block';
+            whoseOnFirst();
         })
     }
 }
 
-const playGameBtns = document.querySelectorAll('.play-game-btn')
-for (playGameBtn of playGameBtns) {
-    playGameBtn.addEventListener('click', () => {
-        if (opponent == 'Einstein') {
-            einsteinPage.style.display = 'none';
-        } else {
-            trumpPage.style.display = 'none';
-        }
-        gamePage.style.display = 'block';
-        puterFirst();
-    })
-}
-
-function puterFirst() {
-    if (puter == 'X') {
-        setTimeout(randomPuter, 500);
+function whoseOnFirst() {
+    if (human == 'X') {
+        humanMove();
+    } else {
+        puterMove()
     }
 }
 
 // GAME
-const gridContainer = document.querySelector('#grid-container');
-let gameOver = false;
-let totalMoves = 0;
+const cells = document.querySelectorAll('.cells');
+let board = [],
+    puterTurn = false,
+    gameOver;
 
-let grid = [
-    [null, null, null],
-    [null, null, null],
-    [null, null, null]
+function startDefaults() {
+    board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    for (let cell of cells) {
+        cell.innerText = '';
+    };
+    gameOver = false;
+    winnerMsg.style.visibility = 'hidden';
+    inGameImg.src = '';
+    opponentComment.innerText = '';
+    playAgainBtn.style.visibility = 'hidden';
+    nextBtn.style.visibility = 'hidden';
+}
+
+function updateBoardUI() {
+    for (let cell of cells) {
+        if (cell.id != board[cell.id]) {
+            cell.innerText = board[cell.id];
+        }
+    }
+}
+
+function humanMove() {
+    const boardUI = document.querySelector('#board-UI');
+    boardUI.addEventListener('click', (e) => {
+        if (!e.target.innerText == '' || gameOver == true || puterTurn == true) {
+            return;
+        }
+        board[e.target.id] = human;
+        // NEED UPDATE PLAY FUNC
+        updateBoardUI();
+        checkWins();
+        puterMove();
+    })
+}
+
+function puterMove() {
+    console.clear();
+    if (gameOver == true) {
+        return;
+    }
+    if (opponent == 'trump') {
+        return trumpMove();
+    } else {
+        einsteinMove();
+    }
+}
+
+function einsteinMove() {
+    setTimeout(() => {
+        puterTurn = true;
+        inGameImg.src = "images/einstein.png"
+        setTimeout(() => {
+            return einsteinTurn = false,
+                inGameImg.src = '',
+                puterTurn = false,
+                puterSmartMove();
+        }, 500)
+    }, 500)
+}
+
+function trumpMove() {
+    puterTurn = true;
+    const thinkTime = Math.round(Math.random() * (6 - 1) + 1);
+    const trumpSmarts = Math.round(Math.random() * 1);
+
+    setTimeout(() => {
+        inGameImg.src = "images/thinktrump.png",
+            setTimeout(() => {
+                if (trumpSmarts == 0) {
+                    return puterTurn = false,
+                        inGameImg.src = '',
+                        puterSmartMove();
+
+                } else {
+                    return puterTurn = false,
+                        inGameImg.src = '',
+                        puterRandomMove();
+                }
+            }, thinkTime * 500)
+    }, 500)
+}
+
+function puterRandomMove() {
+    console.log('puterRandomMove')
+    if (board.every(cell => typeof cell == 'number')) {
+        return firstPuterMove(),
+            updateBoardUI(),
+            humanMove();
+    }
+    const randMove = Math.floor(Math.random() * 9)
+    if (typeof board[randMove] == 'number') {
+        return board[randMove] = puter,
+            updateBoardUI(),
+            checkWins();
+    } else {
+        puterRandomMove();
+    }
+}
+const wins = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [6, 4, 2]
 ];
 
-gridContainer.addEventListener('click', (e) => {
-    if (gameOver == true) {
-        return;
-    } else if (e.target.classList.contains('cell')) {
-        if (e.target.innerText != '') {
-            return
-        } else {
-            e.target.innerText = person;
-            const personIndx1 = e.target.id.slice(0, 1);
-            const personIndx2 = e.target.id.slice(1, 2);
-            grid[personIndx1][personIndx2] = person;
-            totalMoves++;
-        }
-    }
-    updateBoard();
-    setTimeout(smartPuter, 500);
-})
-
-function updateBoard() {
-    for (let i = 0; i < grid.length; i++) {
-        for (let j = 0; j < grid[i].length; j++) {
-            document.getElementById(i + '' + j).innerText = grid[i][j];
-        }
-    }
-    checkWinner();
+function firstPuterMove() {
+    const corners = [0, 2, 6, 8];
+    const randIndex = Math.round(Math.random() * 3);
+    console.log('first move', randIndex)
+    return board[corners[randIndex]] = puter;
 }
 
-function smartPuter() {
-    // ROWS
-    for (let row = 0; row < grid.length; row++) {
-        if (!grid[row].includes(null)) {
-            continue
-        }
-        if (grid[row].filter(x => x == puter).length == 2) {
-            return grid[row][grid[row].indexOf(null)] = puter, totalMoves++, updateBoard();
-        } else if (grid[row].filter(x => x == person).length == 2) {
-            return grid[row][grid[row].indexOf(null)] = puter, totalMoves++, updateBoard();
+function puterSmartMove() {
+    console.log('puterSmartMove')
+    if (board.every(cell => typeof cell == 'number')) {
+        return firstPuterMove(),
+            updateBoardUI(),
+            humanMove();
+    }
+    // DECLARE VARS FUNC LEVEL  - STRAIGHT FOR LOOPS 4 LOGIC
+    //  PUTER WINS
+    for (const win of wins) {
+        const unplayed = win.filter(cell => typeof board[cell] == 'number');
+        const puterPlayed = win.filter(cell => board[cell] == puter);
+        if (puterPlayed.length == 2 && unplayed.length == 1) {
+            return console.log('puter wins'),
+                board[unplayed] = puter,
+                updateBoardUI(),
+                checkWins();
         }
     }
-    // COLS
-    for (let col = 0; col < grid.length; col++) {
-        let colArr = []
-        for (let row = 0; row < grid.length; row++) {
-            colArr.push(grid[row][col])
-            if (colArr.length == 3) {
-                if (!colArr.includes(null)) {
-                    continue
-                } else if (colArr.filter(x => x == puter).length == 2 ||
-                    colArr.filter(x => x == person).length == 2) {
-                    return grid[colArr.indexOf(null)][col] = puter, totalMoves++, updateBoard();
-                }
-            }
-        }
-    }
-    // DIAGS
-    const diagDown = [grid[0][0], grid[1][1], grid[2][2]];
-    if (diagDown.includes(null)) {
-        if (diagDown.filter(x => x == puter).length == 2 ||
-            diagDown.filter(x => x == person).length == 2
-        ) {
-            return grid[diagDown.indexOf(null)][diagDown.indexOf(null)] = puter, totalMoves++, updateBoard();
-        }
-    }
-    const diagUp = [grid[0][2], grid[1][1], grid[2][2]];
 
-    return randomPuter();
+    for (const win of wins) {
+        const unplayed = win.filter(cell => typeof board[cell] == 'number');
+        const humanPlayed = win.filter(cell => board[cell] == human);
+
+        // PUTER BLOCKS
+        if (humanPlayed.length == 2 && unplayed.length == 1) {
+            return console.log('puter blocks'),
+                board[unplayed] = puter,
+                updateBoardUI(),
+                puterTurn = false,
+                checkWins();
+        }
+    }
+    puterRandomMove()
 }
 
-function randomPuter() {
-    if (gameOver == true) {
-        return;
+const tieGame = () => board.filter(cell => typeof cell == 'string').length == 9;
+
+function checkWins() {
+    for (const win of wins) {
+        if (win.every(cell => board[cell] == human)) {
+            return winner(human)
+        } else if (win.every(cell => board[cell] == puter)) {
+            return winner(puter)
+        }
     }
-    const puterIndx1 = Math.floor(Math.random() * 3)
-    const puterIndx2 = Math.floor(Math.random() * 3)
-
-    if (grid[puterIndx1][puterIndx2] == null) {
-        grid[puterIndx1][puterIndx2] = puter;
-        updateBoard()
-        totalMoves++;
-
-    } else {
-        randomPuter();
+    if (tieGame() == true) {
+        return winner('tie');
     }
 }
 
+let tempIndex = [],
+    randAlbertIndex;
 
-const playAgainBtn = document.querySelector('.play-again-btn');
-playAgainBtn.style.visibility = 'hidden';
-playAgainBtn.addEventListener('click', () => {
-    return grid = [
-            [null, null, null],
-            [null, null, null],
-            [null, null, null]
-        ],
-        updateBoard(),
-        totalMoves = 0,
-        gameOver = false,
-        winnerMsg.innerText = '',
-        opponentComment.innerText = '',
-        inGameImg.src = '',
-        playAgainBtn.style.visibility = 'hidden',
-        puterFirst()
-});
-
-const winnerMsg = document.querySelector('#winner-msg');
-const opponentComment = document.querySelector('#opponent-comment');
-const inGameImg = document.querySelector('#in-game-img');
+function randomAlbert() {
+    if (tempIndex.length == 4) {
+        return tempIndex = [], randomAlbert();
+    }
+    randAlbertIndex = Math.round(Math.random() * 3);
+    if (!tempIndex.includes(randAlbertIndex)) {
+        tempIndex.push(randAlbertIndex);
+        return randAlbertIndex;
+    } else randomAlbert();
+}
 
 function winner(player) {
-    let msg;
-    if (player == person) {
-        msg = `you beat ${opponent}!`;
-        if (opponent == 'Trump') {
-            opponentComment.innerText = opponentComments.trump.win
-            inGameImg.src = "images/hillary.png"
-        }
-    } else if (player == puter) {
-        msg = `${opponent} beat you!`;
-        if (opponent == 'Trump') {
-            opponentComment.innerText = opponentComments.trump.loss
-            inGameImg.src = "images/trump.png"
-        }
-    } else {
-        msg = `you tied ${opponent}!`;
-        if (opponent == 'Trump') {
-            opponentComment.innerText = opponentComments.trump.tie
-            inGameImg.src = "images/trump.png"
-        };
+    if (opponent == 'einstein') {
+        randomAlbert();
     }
-    return winnerMsg.innerText = msg, gameOver = true, playAgainBtn.style.visibility = 'visible';
+    let winMsg = '';
+    let opponentMsg = '';
+    if (player == 'tie') {
+        if (opponent == 'trump') {
+            opponentMsg = trumpComments.tie;
+            setTimeout(() => {
+                callPutin();
+            }, 3000)
+        } else {
+            opponentMsg = 'Albert says: ' + einsteinComments[randAlbertIndex];
+        }
+        inGameImg.src = `images/${opponent}.png`;
+        winMsg = `you tied ${capMe(opponent)}!!!`
+    }
+
+    if (player == puter) {
+        winMsg = `${capMe(opponent)} wins!!!`;
+        inGameImg.src = `images/${opponent}.png`;
+        if (opponent == 'trump') {
+            opponentMsg = trumpComments.win;
+        } else {
+            opponentMsg = 'Albert says: ' + einsteinComments[randAlbertIndex];
+        }
+    }
+    if (player == human) {
+        winMsg = `you beat ${capMe(opponent)}!!!`
+        if (opponent == 'trump') {
+            inGameImg.src = "images/hillary.png";
+            opponentMsg = trumpComments.loss;
+        } else {
+            inGameImg.src = "images/einstein.png";
+            opponentMsg = 'Albert says: ' + einsteinComments[randAlbertIndex];
+        }
+    }
+    return gameOver = true, winnerMsg.style.visibility = 'visible', winnerMsg.innerText = winMsg, opponentComment.innerText = opponentMsg, playAgain();
 }
 
-function checkWinner() {
-    if (grid[1][1] != null) {
-        if (grid[0][0] == grid[1][1] && grid[0][0] == grid[2][2] ||
-            grid[0][2] == grid[1][1] && grid[0][2] == grid[2][0]) {
-            return winner(grid[1][1]);
-        }
-    }
-
-    for (let row = 0; row < grid.length; row++) {
-        if (grid[row].includes(null)) {
-            continue;
-        } else if (grid[row][0] == grid[row][1] && grid[row][0] == grid[row][2]) {
-            return winner(grid[row][0]);
-        }
-    }
-    for (let col = 0; col < grid.length; col++) {
-        if (grid[0][col] == null) {
-            continue;
-        } else if (grid[0][col] == grid[1][col] && grid[0][col] == grid[2][col]) {
-            return winner(grid[0][col]);
-        }
-    }
-    if (totalMoves == 9) {
-        return winner();
-    }
+function playAgain() {
+    playAgainBtn.innerText = `play ${capMe(opponent)} again`;
+    playAgainBtn.style.visibility = 'visible';
 }
 
-// win / loss from user perspective
-const opponentComments = {
-    trump: {
-        win: "OMG!!! please call the Democratic National Committee at 202-863-8000 now!",
-        tie: '"THIS WAS NOT SUPPOSED TO HAPPEN!! Hold on..."',
-        loss: '"I am the best tic tac toer that has ever lived. I would never lie. No one has ever been better at tic tac toeing than me..."'
-    }
+const capMe = (word) => word.split('')[0].toUpperCase() + word.slice(1);
+
+const playAgainBtn = document.querySelector('#play-again-btn');
+playAgainBtn.addEventListener('click', () => {
+    playAgainBtn.style.visibility = 'hidden';
+    startDefaults();
+    whoseOnFirst();
+})
+
+
+const callPutinPage = document.querySelector('#call-putin-page');
+
+// document.querySelector('#test-call').addEventListener('click', () => {
+//     callPutin();
+// })
+
+function callPutin() {
+
+    gamePage.style.display = 'none';
+    callPutinPage.style.display = 'block';
+    const trumpPhoneImg = document.querySelector('#trump-phone');
+    const putinPhoneImg = document.querySelector('#putin-phone');
+
+    setTimeout(() => {
+        trumpPhoneImg.style.visibility = 'visible';
+    }, 500);
+    setTimeout(() => {
+        putinPhoneImg.style.visibility = 'visible';
+    }, 2000);
+    setTimeout(() => {
+        putinPhoneImg.style.visibility = 'hidden';
+    }, 4500);
+    setTimeout(() => {
+        trumpPhoneImg.style.visibility = 'hidden';
+    }, 5000);
+    setTimeout(() => {
+        callPutinPage.style.display = 'none';
+        gamePage.style.display = 'block';
+
+        return opponent = 'trump', board = ['X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X'], updateBoardUI(), checkWins();
+    }, 7500)
 }
 
-
-
-
-const wins = [
-    // rows
-    [grid[0][0], grid[0][1], grid[0][2]],
-    [grid[1][0], grid[1][1], grid[1][2]],
-    [grid[2][0], grid[2][1], grid[2][2]],
-    // cols
-    [grid[0][0], grid[1][0], grid[2][0]],
-    [grid[0][1], grid[1][1], grid[2][1]],
-    [grid[0][2], grid[1][2], grid[2][2]],
-    // diags
-    [grid[0][0], grid[1][1], grid[2][2]],
-    [grid[2][0], grid[1][1], grid[0][2]]
-];
-
-
-
-
-
-// function smartMachine(arr) {
-//     for (let row of arr) {
-//         if (row.filter(cell => cell == 'X').length == 2) {
-//             // console.log(row, row.indexOf(null))
-//             return row[row.indexOf(null)] = 'X';
-//         }
-//     }
-// }
-
-// smartMachine(cols)
+const trumpComments = {
+    win: '"STABLE GENIUS!!!"',
+    tie: "Putin will know how to fix this...",
+    loss: "Please call the  Democratic National Committee  at 202-863-8000 now!"
+};
+const einsteinComments = {
+    0: `"A calm and modest life brings more happiness than the pursuit of success combined with constant restlessness."`,
+    1: `"Try not to become a man of success, but rather try to become a man of value."`,
+    2: `"If you can't explain it simply, you don't understand it well enough."`,
+    3: `"All religions, arts and sciences are branches of the same tree."`
+}
