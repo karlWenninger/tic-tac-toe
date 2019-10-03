@@ -29,9 +29,15 @@ html {
 
 h1 {
     font-family: 'Londrina Outline', Arial, Helvetica, sans-serif;
-    font-size: 3rem;
-    line-height: 3rem;
+    font-size: 3.8rem;
+    line-height: 3.8rem;
     color: #e07;
+}
+
+h3 {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
 }
 
 p {
@@ -182,15 +188,14 @@ img#in-game-img {
 }
 
 @media (min-width: 375px) {
-   td {
-       font-size: 2.5rem;
-   }
+    td {
+        font-size: 2.5rem;
+    }
 }
 
 @media (min-width: 768px) {
-   .page-container {
-       border: solid #aaa 1px;
-       margin-top: 1rem;
-   }
- }
- 
+    .page-container {
+        border: solid #aaa 1px;
+        margin-top: 1rem;
+    }
+}
