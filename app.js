@@ -264,10 +264,10 @@ let tempIndex = [],
     randAlbertIndex;
 
 function randomAlbert() {
-    if (tempIndex.length == 4) {
+    if (tempIndex.length == 5) {
         return tempIndex = [], randomAlbert();
     }
-    randAlbertIndex = Math.round(Math.random() * 3);
+    randAlbertIndex = Math.round(Math.random() * 4);
     if (!tempIndex.includes(randAlbertIndex)) {
         tempIndex.push(randAlbertIndex);
         return randAlbertIndex;
@@ -379,5 +379,6 @@ const einsteinComments = {
     0: `"A calm and modest life brings more happiness than the pursuit of success combined with constant restlessness."`,
     1: `"Try not to become a man of success, but rather try to become a man of value."`,
     2: `"If you can't explain it simply, you don't understand it well enough."`,
-    3: `"All religions, arts and sciences are branches of the same tree."`
+    3: `"Unthinking respect for authority is the greatest enemy of truth."`,
+    4: `"Great spirits have always encountered violent opposition from mediocre minds."`
 }
