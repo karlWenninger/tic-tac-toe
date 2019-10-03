@@ -156,8 +156,8 @@ function trumpMove() {
     const thinkTime = Math.round(Math.random() * (7 - 1) + 1);
     const trumpSmarts = Math.round(Math.random() * 1);
 
-    inGameImg.src = "images/thinkTrump.png",
     setTimeout(() => {
+        inGameImg.src = "images/thinkTrump.png",
             setTimeout(() => {
                 if (trumpSmarts == 0) {
                     return puterTurn = false,
@@ -170,7 +170,7 @@ function trumpMove() {
                         puterRandomMove();
                 }
             }, thinkTime * 500)
-    }, 500)
+    }, 1000)
 }
 
 function puterRandomMove() {
