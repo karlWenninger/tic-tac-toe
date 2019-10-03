@@ -141,9 +141,9 @@ function puterMove() {
 function einsteinMove() {
     setTimeout(() => {
         puterTurn = true;
-        inGameImg.src = "images/einstein.png"
-        setTimeout(() => {
-            return einsteinTurn = false,
+        inGameImg.src = "images/einstein.png";
+        return setTimeout(() => {
+            einsteinTurn = false,
                 inGameImg.src = '',
                 puterTurn = false,
                 puterSmartMove();
@@ -156,8 +156,8 @@ function trumpMove() {
     const thinkTime = Math.round(Math.random() * (7 - 1) + 1);
     const trumpSmarts = Math.round(Math.random() * 1);
 
+    inGameImg.src = "images/thinkTrump.png",
     setTimeout(() => {
-        inGameImg.src = "images/thinkTrump.png",
             setTimeout(() => {
                 if (trumpSmarts == 0) {
                     return puterTurn = false,
@@ -281,13 +281,13 @@ function winner(player) {
     if (player == 'tie') {
         if (opponent == 'trump') {
             return winnerMsg.innerText = 'you tied Trump!!!',
-            winnerMsg.style.visibility = 'visible',
-            opponentComment.innerText = trumpComments.tie,
-            gameOver = true,
-            inGameImg.src = `images/${opponent}.png`,
-            setTimeout(() => {
-                callPutin();
-            }, 3000);
+                winnerMsg.style.visibility = 'visible',
+                opponentComment.innerText = trumpComments.tie,
+                gameOver = true,
+                inGameImg.src = `images/${opponent}.png`,
+                setTimeout(() => {
+                    callPutin();
+                }, 3000);
         } else {
             opponentMsg = 'Albert says: ' + einsteinComments[randAlbertIndex];
         }
