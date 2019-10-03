@@ -157,7 +157,7 @@ function trumpMove() {
     const trumpSmarts = Math.round(Math.random() * 1);
 
     setTimeout(() => {
-        inGameImg.src = "images/thinktrump.png",
+        inGameImg.src = "images/thinkTrump.png",
             setTimeout(() => {
                 if (trumpSmarts == 0) {
                     return puterTurn = false,
