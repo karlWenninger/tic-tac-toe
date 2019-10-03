@@ -29,7 +29,8 @@ html {
 
 h1 {
     font-family: 'Londrina Outline', Arial, Helvetica, sans-serif;
-    font-size: 3.5rem;
+    font-size: 3rem;
+    line-height: 3rem;
     color: #e07;
 }
 

@@ -98,7 +98,7 @@ function startDefaults() {
     };
     gameOver = false;
     winnerMsg.style.visibility = 'hidden';
-    inGameImg.src = '';
+    inGameImg.style.visibility = 'hidden';
     opponentComment.innerText = '';
     playAgainBtn.style.visibility = 'hidden';
     nextBtn.style.visibility = 'hidden';
@@ -142,10 +142,11 @@ function einsteinMove() {
     setTimeout(() => {
         puterTurn = true;
         inGameImg.src = "images/einstein.png";
+        inGameImg.style.visibility = 'visible';
         return setTimeout(() => {
             einsteinTurn = false,
-                inGameImg.src = '',
-                puterTurn = false,
+                inGameImg.style.visibility = 'hidden';
+            puterTurn = false,
                 puterSmartMove();
         }, 500)
     }, 500)
@@ -158,19 +159,20 @@ function trumpMove() {
 
     setTimeout(() => {
         inGameImg.src = "images/thinkTrump.png",
-            setTimeout(() => {
-                if (trumpSmarts == 0) {
-                    return puterTurn = false,
-                        inGameImg.src = '',
-                        puterSmartMove();
+            inGameImg.style.visibility = 'visible';
+        setTimeout(() => {
+            if (trumpSmarts == 0) {
+                return puterTurn = false,
+                    inGameImg.style.visibility = 'hidden',
+                    puterSmartMove();
 
-                } else {
-                    return puterTurn = false,
-                        inGameImg.src = '',
-                        puterRandomMove();
-                }
-            }, thinkTime * 500)
-    }, 1000)
+            } else {
+                return puterTurn = false,
+                    inGameImg.style.visibility = 'hidden',
+                    puterRandomMove();
+            }
+        }, thinkTime * 500)
+    }, 750)
 }
 
 function puterRandomMove() {
@@ -283,8 +285,9 @@ function winner(player) {
             return winnerMsg.innerText = 'you tied Trump!!!',
                 winnerMsg.style.visibility = 'visible',
                 opponentComment.innerText = trumpComments.tie,
-                gameOver = true,
                 inGameImg.src = `images/${opponent}.png`,
+                inGameImg.style.visibility = 'visible',
+                gameOver = true,
                 setTimeout(() => {
                     callPutin();
                 }, 3000);
@@ -292,12 +295,14 @@ function winner(player) {
             opponentMsg = 'Albert says: ' + einsteinComments[randAlbertIndex];
         }
         inGameImg.src = `images/${opponent}.png`;
+        inGameImg.style.visibility = 'visible';
         winMsg = `you tied ${capMe(opponent)}!!!`
     }
 
     if (player == puter) {
         winMsg = `${capMe(opponent)} wins!!!`;
         inGameImg.src = `images/${opponent}.png`;
+        inGameImg.style.visibility = 'visible';
         if (opponent == 'trump') {
             opponentMsg = trumpComments.win;
         } else {
@@ -308,9 +313,11 @@ function winner(player) {
         winMsg = `you beat ${capMe(opponent)}!!!`
         if (opponent == 'trump') {
             inGameImg.src = "images/hillary.png";
+            inGameImg.style.visibility = 'visible';
             opponentMsg = trumpComments.loss;
         } else {
             inGameImg.src = "images/einstein.png";
+            inGameImg.style.visibility = 'visible';
             opponentMsg = 'Albert says: ' + einsteinComments[randAlbertIndex];
         }
     }
