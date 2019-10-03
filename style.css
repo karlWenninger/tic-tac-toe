@@ -170,7 +170,7 @@ table tr td:last-child {
 #opponent-comment {
     margin: 0 auto;
     font-size: .6rem;
-    line-height: .6rem;
+    line-height: .65rem;
     color: #519;
     width: 80vw;
     max-width: 300px;

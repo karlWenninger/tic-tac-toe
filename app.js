@@ -153,7 +153,7 @@ function einsteinMove() {
 
 function trumpMove() {
     puterTurn = true;
-    const thinkTime = Math.round(Math.random() * (6 - 1) + 1);
+    const thinkTime = Math.round(Math.random() * (7 - 1) + 1);
     const trumpSmarts = Math.round(Math.random() * 1);
 
     setTimeout(() => {
@@ -280,10 +280,14 @@ function winner(player) {
     let opponentMsg = '';
     if (player == 'tie') {
         if (opponent == 'trump') {
-            opponentMsg = trumpComments.tie;
+            return winnerMsg.innerText = 'you tied Trump!!!',
+            winnerMsg.style.visibility = 'visible',
+            opponentComment.innerText = trumpComments.tie,
+            gameOver = true,
+            inGameImg.src = `images/${opponent}.png`,
             setTimeout(() => {
                 callPutin();
-            }, 3000)
+            }, 3000);
         } else {
             opponentMsg = 'Albert says: ' + einsteinComments[randAlbertIndex];
         }
@@ -335,7 +339,6 @@ const callPutinPage = document.querySelector('#call-putin-page');
 // })
 
 function callPutin() {
-
     gamePage.style.display = 'none';
     callPutinPage.style.display = 'block';
     const trumpPhoneImg = document.querySelector('#trump-phone');
@@ -349,14 +352,13 @@ function callPutin() {
     }, 2000);
     setTimeout(() => {
         putinPhoneImg.style.visibility = 'hidden';
-    }, 4500);
+    }, 5000);
     setTimeout(() => {
         trumpPhoneImg.style.visibility = 'hidden';
-    }, 5000);
+    }, 5500);
     setTimeout(() => {
         callPutinPage.style.display = 'none';
         gamePage.style.display = 'block';
-
         return opponent = 'trump', board = ['X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X'], updateBoardUI(), checkWins();
     }, 7500)
 }
