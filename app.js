@@ -1,3 +1,7 @@
+// let's mobile vh account for mobile browser nav
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
 // UI
 const winnerMsg = document.querySelector('#winner-msg');
 const opponentComment = document.querySelector('#opponent-comment');
@@ -264,10 +268,10 @@ let tempIndex = [],
     randAlbertIndex;
 
 function randomAlbert() {
-    if (tempIndex.length == 5) {
+    if (tempIndex.length == 6) {
         return tempIndex = [], randomAlbert();
     }
-    randAlbertIndex = Math.round(Math.random() * 4);
+    randAlbertIndex = Math.round(Math.random() * 5);
     if (!tempIndex.includes(randAlbertIndex)) {
         tempIndex.push(randAlbertIndex);
         return randAlbertIndex;
@@ -380,5 +384,6 @@ const einsteinComments = {
     1: `"Try not to become a man of success, but rather try to become a man of value."`,
     2: `"If you can't explain it simply, you don't understand it well enough."`,
     3: `"Unthinking respect for authority is the greatest enemy of truth."`,
-    4: `"Great spirits have always encountered violent opposition from mediocre minds."`
+    4: `"Great spirits have always encountered violent opposition from mediocre minds."`,
+    5: `"The world is in greater peril from those who tolerate or encourage evil than from those who actually commit it."`
 }
