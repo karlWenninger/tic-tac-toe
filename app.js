@@ -1,14 +1,9 @@
-// let's mobile vh account for mobile browser nav
-let vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty('--vh', `${vh}px`);
-
 // UI
 const winnerMsg = document.querySelector('#winner-msg');
 const opponentComment = document.querySelector('#opponent-comment');
 const inGameImg = document.querySelector('#in-game-img');
 const startPage = document.querySelector('#start-page');
 const gamePage = document.querySelector(`#game-page`);
-
 
 let opponent,
     human = 'O',
