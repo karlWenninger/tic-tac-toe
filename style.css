@@ -11,6 +11,7 @@ html {
 }
 
 .page-container {
+    position: relative;
     width: 100vw;
     max-width: 470px;
     height: 85vh;
@@ -20,10 +21,14 @@ html {
 
 .mid-page-container {
     position: absolute;
-    top: 45%;
+    top: 50%;
     left: 2.5%;
     transform: translateY(-50%);
     width: 95%;
+}
+
+#splash-page{
+    top: 63%;
 }
 
 h1 {
@@ -34,7 +39,7 @@ h1 {
 }
 
 h3 {
-    margin-top: 1rem;
+    margin: 1rem auto .5rem;
     font-size: 1.2rem;
     line-height: 1.2rem;
 }
@@ -47,8 +52,7 @@ p {
 .btn-container,
 .phone-container {
     display: flex;
-    margin-top: .5rem;
-    width: 80%;
+    /* margin-top: .5rem; */
 }
 
 .btn-container img {
@@ -61,7 +65,7 @@ p {
 }
 
 .phone-container img {
-    width: 120px;
+    width: 95px;
     border-radius: 50%;
 
 }
@@ -77,17 +81,16 @@ p {
 
 .opponent-btns {
     width: 40%;
-    padding: 5px;
+    padding: 10px;
     cursor: pointer;
     border-radius: 3%;
-    /* border: solid #fc0 .5px; */
 }
 
 .opponent-btns p {
     margin: 0;
     font-size: .8rem;
     line-height: .8rem;
-    color: #188;
+    color: #519;
 }
 
 .player-btns {
@@ -101,13 +104,15 @@ p {
     border: solid #fc0 .5px;
 }
 
+#human-O {
+    background: #fc0;
+}
+
 button {
     position: absolute;
-    bottom: 2%;
+    bottom: 4%;
     left: 50%;
     transform: translateX(-48%);
-    width: 80vw;
-    max-width: 300px;
     font-size: .7rem;
     color: #e07;
     background: #fc0;
@@ -116,6 +121,7 @@ button {
     text-decoration: none;
     outline: none;
     cursor: pointer;
+    padding: 3px 10px;
 }
 
 #board-UI {
@@ -171,14 +177,27 @@ table tr td:last-child {
     font-size: .6rem;
     line-height: .65rem;
     color: #519;
-    width: 80vw;
-    max-width: 300px;
+    width: 95vw;
+    max-width: 320px;
 }
 
 img#in-game-img {
-    width: 75px;
-    max-width: 90px;
+    width: 85px;
     border-radius: 50%;
+}
+
+#reload-msg {
+    visibility: hidden;
+    position: absolute;
+    bottom: .5%;
+    left: 50%;
+    transform: translateX(-48%);
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: .45rem;
+    margin: 0;
+    color: #000;
+
 }
 
 #call-putin-page {
@@ -194,6 +213,7 @@ img#in-game-img {
 @media (min-width: 768px) {
     .page-container {
         border: solid #aaa 1px;
-        margin-top: 1rem;
+        margin-top: 150px;
+        padding: 5px;
     }
 }

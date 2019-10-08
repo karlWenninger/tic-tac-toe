@@ -4,9 +4,11 @@ const opponentComment = document.querySelector('#opponent-comment');
 const inGameImg = document.querySelector('#in-game-img');
 const startPage = document.querySelector('#start-page');
 const gamePage = document.querySelector(`#game-page`);
+const reloadMsg = document.querySelector('#reload-msg');
+
 
 let opponent,
-    human = 'O',
+human = 'O',
     puter = 'X';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -101,6 +103,7 @@ function startDefaults() {
     opponentComment.innerText = '';
     playAgainBtn.style.visibility = 'hidden';
     nextBtn.style.visibility = 'hidden';
+    reloadMsg.style.visibility = 'hidden';
 }
 
 function updateBoardUI() {
@@ -326,6 +329,7 @@ function winner(player) {
 function playAgain() {
     playAgainBtn.innerText = `play ${capMe(opponent)} again`;
     playAgainBtn.style.visibility = 'visible';
+    reloadMsg.style.visibility = 'visible';
 }
 
 const capMe = (word) => word.split('')[0].toUpperCase() + word.slice(1);

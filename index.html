@@ -14,7 +14,8 @@
 <body>
     <div id="start-page" class="page-container">
         <h1>TIC TAC TOE</h1>
-            <h3>choose <br>your opponent</h3>
+        <div class="mid-page-container" id="splash-page">
+            <h3>choose your opponent</h3>
             <div class="btn-container">
                 <div id="einstein-btn" class="opponent-btns">
                     <img src="images/einstein.png" alt="Albert Einstein image" id="this makes me nutz">
@@ -24,6 +25,7 @@
                     <img src="images/trump.png" alt="Donald Trump image">
                     <p>Donald<br>Trump</p>
                 </div>
+            </div>
         </div>
         <button id="next-page-btn">next</button>
     </div>
@@ -43,7 +45,7 @@
     <div id="einstein-page" class="page-container">
         <div class="mid-page-container">
             <h3>choose "X" or "O"</h3>
-            <h4>X goes first</h4>
+            <h4>"X" goes first</h4>
             <div class="btn-container">
                 <div class="player-btns" id="human-X">X</div>
                 <div class="player-btns" id="human-O">O</div>
@@ -76,7 +78,10 @@
             <p id="winner-msg"></p>
             <img id="in-game-img">
             <p id="opponent-comment"></p>
-            <button id="play-again-btn"></button>
+            <button id="play-again-btn">
+            </button>
+            <p id="reload-msg">(refresh for new game)</p>
+
         </div>
     </div>
 
