@@ -383,6 +383,6 @@ const einsteinComments = {
     1: `"Try not to become a man of success, but rather try to become a man of value."`,
     2: `"If you can't explain it simply, you don't understand it well enough."`,
     3: `"Unthinking respect for authority is the greatest enemy of truth."`,
-    4: `"Great spirits have always encountered violent opposition from mediocre minds."`,
+    4: `"Don’t listen to the person who has the answers; listen to the person who has the questions."`,
     5: `"The world is in greater peril from those who tolerate or encourage evil than from those who actually commit it."`
 }
