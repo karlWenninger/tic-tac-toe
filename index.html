@@ -8,50 +8,56 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Londrina+Outline&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Londrina+Solid&display=swap" rel="stylesheet">
+
     <title>tic-tac-toe</title>
 </head>
 
 <body>
     <div id="start-page" class="page-container">
-        <h1>TIC TAC TOE</h1>
-        <div class="mid-page-container" id="splash-page">
-            <h3>choose your opponent</h3>
-            <div class="btn-container">
-                <div id="einstein-btn" class="opponent-btns">
-                    <img src="images/einstein.png" alt="Albert Einstein image" id="this makes me nutz">
-                    <p>Albert<br>Einstein </p>
-                </div>
-                <div id="trump-btn" class="opponent-btns">
-                    <img src="images/trump.png" alt="Donald Trump image">
-                    <p>Donald<br>Trump</p>
-                </div>
+        <div>
+            <h1> TIC TAC<br> TOE</h1>
+        </div>
+        <div class="two-col-container">
+            <h3 class="span-2-row">choose your opponent</h3>
+            <div id="einstein-btn">
+                <img src="images/einstein.png" alt="albert einstein">
+                <h5>albert<br>einstein</h5>
+            </div>
+            <div id="trump-btn">
+                <img src="images/trump.png" alt="donald trump">
+                <h5>donald<br>trump</h5>
             </div>
         </div>
-        <button id="next-page-btn">next</button>
+        <div class="play-btn" id="next-btn">next</div>
     </div>
 
-    <div id="trump-page" class="page-container">
-        <div class="mid-page-container">
-            <h3>choose "X" or "O"</h3>
-            <p>"X"goes first</p>
-            <p>If you don't let Trump be "X" he will accuse you of being unpatriotic and try to deport your
-                grandmother</p>
+    <div id="einstein-page" class="page-container choose-page">
+        <div>
+            <h2>TIC TAC TOE</h2>
+        </div>
+        <div class="two-col-container">
+            <div class="span-2-row">
+                <h3 class="top-margin3">choose "X" or "O"</h3>
+                <h4>"X" goes first</h4>
+            </div>
+            <p id="human-X" class="player-btns">X</p>
+            <p id="human-O" class="player-btns">O</p>
+        </div>
+        <div class="play-btn">play game</div>
+    </div>
+
+    <div id="trump-page" class="page-container choose-page">
+        <div>
+            <h2>TIC TAC TOE</h2>
+        </div>
+        <div>
+            <h4 class="top-margin3">"X" goes first</h4>
+            <p>if you don't let Trump go first he will acuse you of being unpatriotic and try to deport your grandmother
+            </p>
             <p>just let Trump be "X"</p>
             <p>you will be "O"</p>
         </div>
-        <button class="play-game-btn">play game</button>
-    </div>
-
-    <div id="einstein-page" class="page-container">
-        <div class="mid-page-container">
-            <h3>choose "X" or "O"</h3>
-            <h4>"X" goes first</h4>
-            <div class="btn-container">
-                <div class="player-btns" id="human-X">X</div>
-                <div class="player-btns" id="human-O">O</div>
-            </div>
-        </div>
-        <button class="play-game-btn">play game</button>
+        <div><button class="play-btn">play game</button></div>
     </div>
 
     <div id="game-page" class="page-container">
@@ -74,32 +80,23 @@
                 </tr>
             </table>
         </div>
-        <div id="ingame-msg-container">
-            <p id="winner-msg"></p>
-            <img id="in-game-img">
-            <p id="opponent-comment"></p>
-            <button id="play-again-btn">
-            </button>
+        <div>
+            <p id="winner-msg">winner-msg</p>
+            <img class="in-game-img">
+            <p class="opponent-comment">comment</p>
+            <div id="play-again-btn"><button>play again</button></div>
             <!-- <p id="reload-msg">(refresh for new game)</p> -->
-
         </div>
     </div>
 
     <div id="call-putin-page" class="page-container">
-        <div class="mid-page-container">
-            <div class="phone-container">
-                <div id="trump-phone">
-                    <img src="images/trumpPhone.jpg" alt="Trump on phone" id="this makes me nutz">
-                </div>
-                <div id="putin-phone">
-                    <img src="images/putinPhone.png" alt="Putin on phone">
-                </div>
-            </div>
+        <!-- <div class="phone-container"> -->
+        <div class="two-col-container">
+            <img src="images/trumpPhone.jpg" alt="Trump on phone" id="trump-phone">
+            <img src="images/putinPhone.png" alt="Putin on phone" id="putin-phone">
         </div>
-        <!-- <button id="test-call">test</button> -->
     </div>
-
-
+    <!-- <button id="test-call">test</button> -->
     <script src="app.js"></script>
 </body>
 

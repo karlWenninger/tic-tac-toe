@@ -1,14 +1,14 @@
 // UI
 const winnerMsg = document.querySelector('#winner-msg');
-const opponentComment = document.querySelector('#opponent-comment');
-const inGameImg = document.querySelector('#in-game-img');
+const opponentComment = document.querySelector('.opponent-comment');
+const inGameImg = document.querySelector('.in-game-img');
 const startPage = document.querySelector('#start-page');
 const gamePage = document.querySelector(`#game-page`);
 // const reloadMsg = document.querySelector('#reload-msg');
 
 
 let opponent,
-human = 'O',
+    human = 'O',
     puter = 'X';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -38,7 +38,7 @@ function chooseOpponent() {
     })
 }
 
-const nextBtn = document.querySelector('#next-page-btn');
+const nextBtn = document.querySelector('#next-btn');
 nextBtn.addEventListener('click', () => {
     if (opponent == undefined) {
         return;
@@ -66,7 +66,7 @@ function choosePlayer() {
     })
 }
 
-const btns = document.querySelectorAll('.play-game-btn');
+const btns = document.querySelectorAll('.play-btn');
 
 function playGameBtn() {
     for (let btn of btns) {
@@ -146,8 +146,7 @@ function einsteinMove() {
         inGameImg.src = "images/einstein.png";
         inGameImg.style.visibility = 'visible';
         return setTimeout(() => {
-            einsteinTurn = false,
-                inGameImg.style.visibility = 'hidden';
+            inGameImg.style.visibility = 'hidden';
             puterTurn = false,
                 puterSmartMove();
         }, 500)
@@ -158,7 +157,7 @@ function trumpMove() {
     puterTurn = true;
     const thinkTime = Math.round(Math.random() * (7 - 1) + 1);
     const trumpSmarts = Math.round(Math.random() * 1);
-
+    console.log('thinkTime ' + thinkTime, 'trumpSmarts ' + trumpSmarts)
     setTimeout(() => {
         inGameImg.src = "images/thinkTrump.png",
             inGameImg.style.visibility = 'visible';
@@ -356,21 +355,21 @@ function callPutin() {
 
     setTimeout(() => {
         trumpPhoneImg.style.visibility = 'visible';
-    }, 500);
+    }, 1250);
     setTimeout(() => {
         putinPhoneImg.style.visibility = 'visible';
-    }, 2000);
+    }, 2750);
     setTimeout(() => {
         putinPhoneImg.style.visibility = 'hidden';
-    }, 5000);
+    }, 5750);
     setTimeout(() => {
         trumpPhoneImg.style.visibility = 'hidden';
-    }, 5500);
+    }, 6250);
     setTimeout(() => {
         callPutinPage.style.display = 'none';
         gamePage.style.display = 'block';
         return opponent = 'trump', board = ['X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X'], updateBoardUI(), checkWins();
-    }, 7500)
+    }, 8250)
 }
 
 const trumpComments = {

@@ -1,100 +1,112 @@
 html {
-    font-size: 28px;
+    font-size: 20px;
 }
 
 * {
     margin: 0 auto;
+    text-align: center;
     font-family: 'Londrina Solid', Arial, Helvetica, sans-serif;
     color: #188;
-    text-align: center;
     box-sizing: border-box;
+}
+
+img {
+    border-radius: 50%;
+}
+
+.in-game-img {
+    width: 25%;
 }
 
 .page-container {
     position: relative;
     width: 100vw;
-    max-width: 470px;
-    height: 83vh;
-    max-height: 620px;
-    padding: 3px auto;
+    max-width: 400px;
+    /* room for top/btm mobile nav chrome safari */
+    height: 83vh; 
+    max-height: 600px;
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    border: solid black 1px;
 }
 
-.mid-page-container {
-    position: absolute;
-    top: 50%;
-    left: 2.5%;
-    transform: translateY(-50%);
-    width: 95%;
+#start-page {
+    grid-template-rows: 3fr 2fr 1fr;
 }
 
-#splash-page{
-    top: 63%;
+#game-page {
+    grid-template-rows: 3fr 3fr 1fr;
 }
 
-h1 {
+.choose-page {
+    grid-template-rows: 500px 300px 1fr;
+}
+
+.two-col-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.span-2-row {
+    grid-column-start: span 2;
+}
+
+h1,
+h2 {
     font-family: 'Londrina Outline', Arial, Helvetica, sans-serif;
-    font-size: 3.8rem;
-    line-height: 3.8rem;
     color: #e07;
 }
 
+h1 {
+    font-size: 5rem;
+    line-height: 4.5rem;
+}
+
+h2 {
+    font-size: 3rem;
+    /* line-height: 4rem; */
+}
+
 h3 {
-    margin: 1rem auto .5rem;
+    font-size: 1.4rem;
+    /* line-height: 1.2rem; */
+    margin: 1rem 0 .5rem;
+}
+
+h4 {
     font-size: 1.2rem;
-    line-height: 1.2rem;
+    line-height: 1rem;
+    margin: .3rem 0 0;
 }
 
-p {
-    margin-top: 20px;
-    color: #444;
-}
-
-.btn-container,
-.phone-container {
-    display: flex;
-    /* margin-top: .5rem; */
-}
-
-.btn-container img {
-    width: 85%;
-    border-radius: 50%;
-}
-
-.phone-container {
-    margin-top: 60px;
-}
-
-.phone-container img {
-    width: 95px;
-    border-radius: 50%;
-
-}
-
-#trump-phone {
-    margin-top: 4rem;
-}
-
-#trump-phone,
-#putin-phone {
-    visibility: hidden;
-}
-
-.opponent-btns {
-    width: 40%;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 3%;
-}
-
-.opponent-btns p {
-    margin: 0;
-    font-size: .8rem;
+h5 {
     line-height: .8rem;
+    margin-top: .3rem;
     color: #519;
 }
 
+p {
+    color: #555;
+    margin: 1rem;
+}
+
+.top-margin3 {
+    margin-top: 3rem;
+}
+
+#einstein-btn,
+#trump-btn {
+    padding: 10px;
+    width: 80%;
+    border-radius: 5%;
+}
+
+#einstein-btn img,
+#trump-btn img {
+    width: 80%;
+}
+
 .player-btns {
-    margin-top: 1rem;
     line-height: 100px;
     width: 100px;
     height: 100px;
@@ -102,53 +114,44 @@ p {
     cursor: pointer;
     border-radius: 3%;
     border: solid #fc0 .5px;
+    margin: 1rem auto;
+}
+
+.play-btn,
+#play-again-btn {
+    position: absolute;
+    bottom: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fc0;
+    padding: 5px 10px;
+    width: auto;
+    margin-top: .5rem;
+    border-radius: 5%;
+    font-size: .65rem;
+    color: #e07;
+    cursor: pointer;
 }
 
 #human-O {
     background: #fc0;
 }
 
-button {
-    position: absolute;
-    bottom: 1%;
-    left: 50%;
-    transform: translateX(-48%);
-    font-size: .7rem;
-    color: #e07;
-    background: #fc0;
-    border-radius: 3%;
-    border: none;
-    text-decoration: none;
-    outline: none;
-    cursor: pointer;
-    padding: 3px 10px;
-}
-
-#board-UI {
-    margin: 0 auto;
-    width: 75vw;
-    max-width: 300px;
-    height: 75vw;
-    max-height: 300px;
-}
-
 table {
     margin-top: .5rem;
-    width: 100%;
-    height: 100%;
     border-collapse: collapse;
 }
 
 td {
-    border: solid #fc0 4px;
-    width: 80px;
+    width: 100px;
     max-width: 130px;
-    height: 80px;
+    height: 100px;
     max-height: 130px;
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 3rem;
     line-height: 2rem;
     color: #188;
+    border: solid #fc0 4px;
 }
 
 table tr:first-child td {
@@ -167,52 +170,73 @@ table tr td:last-child {
     border-right: 0;
 }
 
+
+@media (min-width: 400px) {
+    html {
+        font-size: 26px;
+    }
+}
+
 #winner-msg {
     font-size: 1rem;
     color: #04afbf;
+    margin: .75rem 0 .25rem;
 }
 
-#opponent-comment {
-    margin: 0 auto;
-    font-size: .6rem;
-    line-height: .65rem;
+.opponent-comment {
+    margin: 0 auto .5rem;
+    font-size: .7rem;
+    line-height: .7rem;
     color: #519;
-    width: 95vw;
-    max-width: 320px;
+    width: 90%;
 }
-
-img#in-game-img {
-    width: 85px;
-    border-radius: 50%;
-}
-
-/* #reload-msg {
-    visibility: hidden;
-    position: absolute;
-    bottom: .25%;
-    left: 50%;
-    transform: translateX(-48%);
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: italic;
-    font-size: .45rem;
-    margin: 0;
-    color: #000;
-} */
 
 #call-putin-page {
-    background: #000;
+    background: #282849;
 }
 
-@media (min-width: 375px) {
-    td {
-        font-size: 2.5rem;
+#trump-phone,
+#putin-phone {
+    width: 60%;
+    visibility: hidden;
+}
+
+#trump-phone {
+    margin-top: 10rem;
+}
+
+#putin-phone {
+    margin-top: 6rem;
+}
+
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }
 
-@media (min-width: 768px) {
-    .page-container {
-        border: solid #aaa 1px;
-        margin-top: 150px;
-        padding: 5px;
+@keyframes fade-out {
+    from {
+        opacity: 1;
     }
+
+    to {
+        opacity: 0;
+    }
+}
+
+#call-putin-page {
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-delay: none;
+}
+#call-putin-page {
+    animation-name: fade-out;
+    animation-duration: 1s;
+    animation-delay: 7.5s;
 }
