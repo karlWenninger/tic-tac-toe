@@ -1,5 +1,5 @@
 html {
-    font-size: 20px;
+    /* font-size: 32px; */
 }
 
 * {
@@ -10,15 +10,8 @@ html {
     box-sizing: border-box;
 }
 
-img {
-    border-radius: 50%;
-}
-
-.in-game-img {
-    width: 25%;
-}
-
 .page-container {
+    margin-top: .5rem;
     position: relative;
     width: 100vw;
     max-width: 400px;
@@ -27,7 +20,6 @@ img {
     max-height: 600px;
     display: grid;
     grid-template-rows: 1fr 2fr 1fr;
-    border: solid black 1px;
 }
 
 #start-page {
@@ -90,6 +82,15 @@ p {
     margin: 1rem;
 }
 
+img {
+    border-radius: 50%;
+}
+
+.in-game-img {
+    width: 25%;
+}
+
+
 .top-margin3 {
     margin-top: 3rem;
 }
@@ -148,7 +149,7 @@ td {
     height: 100px;
     max-height: 130px;
     cursor: pointer;
-    font-size: 3rem;
+    font-size: 3.25rem;
     line-height: 2rem;
     color: #188;
     border: solid #fc0 4px;
@@ -168,13 +169,6 @@ table tr td:first-child {
 
 table tr td:last-child {
     border-right: 0;
-}
-
-
-@media (min-width: 400px) {
-    html {
-        font-size: 26px;
-    }
 }
 
 #winner-msg {
@@ -240,3 +234,12 @@ table tr td:last-child {
     animation-duration: 1s;
     animation-delay: 7.5s;
 }
+
+
+
+@media (min-width: 400px) {
+    html {
+        font-size: 28px;
+    }
+}
+
