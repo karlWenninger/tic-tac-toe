@@ -1,6 +1,3 @@
-html {
-    /* font-size: 32px; */
-}
 
 * {
     margin: 0 auto;
@@ -11,19 +8,19 @@ html {
 }
 
 .page-container {
-    margin-top: .5rem;
+    margin-top: 1rem;
     position: relative;
     width: 100vw;
     max-width: 400px;
     /* room for top/btm mobile nav chrome safari */
-    height: 83vh; 
+    height: 85vh; 
     max-height: 600px;
     display: grid;
     grid-template-rows: 1fr 2fr 1fr;
 }
 
 #start-page {
-    grid-template-rows: 3fr 2fr 1fr;
+    grid-template-rows: 2fr 2fr 1fr;
 }
 
 #game-page {
@@ -56,12 +53,10 @@ h1 {
 
 h2 {
     font-size: 3rem;
-    /* line-height: 4rem; */
 }
 
 h3 {
     font-size: 1.4rem;
-    /* line-height: 1.2rem; */
     margin: 1rem 0 .5rem;
 }
 
@@ -125,6 +120,7 @@ img {
     left: 50%;
     transform: translateX(-50%);
     background: #fc0;
+    border: #777 solid .5px;
     padding: 5px 10px;
     width: auto;
     margin-top: .5rem;
@@ -149,7 +145,7 @@ td {
     height: 100px;
     max-height: 130px;
     cursor: pointer;
-    font-size: 3.25rem;
+    font-size: 3rem;
     line-height: 2rem;
     color: #188;
     border: solid #fc0 4px;
@@ -237,9 +233,18 @@ table tr td:last-child {
 
 
 
-@media (min-width: 400px) {
+@media (max-width: 414px) {
     html {
         font-size: 28px;
+    }
+    h1 {
+        font-size: 4rem;
+        line-height: 3.8rem;
+        margin-bottom: 0;
+    }
+    h3 {
+        font-size: 1.4rem;
+        margin: .4rem auto .2rem;
     }
 }
 
