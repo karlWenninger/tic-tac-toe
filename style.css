@@ -10,10 +10,10 @@
 .page-container {
     margin-top: 1rem;
     position: relative;
-    width: 100vw;
+    width: 98vw;
     max-width: 400px;
     /* room for top/btm mobile nav chrome safari */
-    height: 85vh; 
+    height: 83vh; 
     max-height: 600px;
     display: grid;
     grid-template-rows: 1fr 2fr 1fr;
