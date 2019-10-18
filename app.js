@@ -24,14 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
 function chooseOpponent() {
     const einsteinBtn = document.querySelector('#einstein-btn');
     einsteinBtn.addEventListener('click', () => {
-        einsteinBtn.style.background = '#fc0';
+        einsteinBtn.style.background = '#ddd';
         trumpBtn.style.background = 'none';
         opponent = 'einstein';
         nextBtn.style.visibility = 'visible';
     })
     const trumpBtn = document.querySelector('#trump-btn');
     trumpBtn.addEventListener('click', () => {
-        trumpBtn.style.background = '#fc0';
+        trumpBtn.style.background = '#ddd';
         einsteinBtn.style.background = 'none';
         opponent = 'trump';
         nextBtn.style.visibility = 'visible';

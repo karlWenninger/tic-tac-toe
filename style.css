@@ -1,4 +1,6 @@
-
+html {
+    font-size: 28px;
+}
 * {
     margin: 0 auto;
     text-align: center;
@@ -8,13 +10,13 @@
 }
 
 .page-container {
-    margin-top: 1rem;
+    margin-top: .5rem;
     position: relative;
     width: 98vw;
     max-width: 400px;
     /* room for top/btm mobile nav chrome safari */
     height: 83vh; 
-    max-height: 600px;
+    max-height: 625px;
     display: grid;
     grid-template-rows: 1fr 2fr 1fr;
 }
@@ -47,8 +49,8 @@ h2 {
 }
 
 h1 {
-    font-size: 5rem;
-    line-height: 4.5rem;
+    font-size: 4.5rem;
+    line-height: 4rem;
 }
 
 h2 {
@@ -57,7 +59,7 @@ h2 {
 
 h3 {
     font-size: 1.4rem;
-    margin: 1rem 0 .5rem;
+    margin: .5rem auto;
 }
 
 h4 {
@@ -68,7 +70,7 @@ h4 {
 
 h5 {
     line-height: .8rem;
-    margin-top: .3rem;
+    /* margin-top: .2rem; */
     color: #519;
 }
 
@@ -116,11 +118,11 @@ img {
 .play-btn,
 #play-again-btn {
     position: absolute;
-    bottom: 1%;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     background: #fc0;
-    border: #777 solid .5px;
+    border: #777 solid .3px;
     padding: 5px 10px;
     width: auto;
     margin-top: .5rem;
@@ -178,7 +180,6 @@ table tr td:last-child {
     font-size: .7rem;
     line-height: .7rem;
     color: #519;
-    width: 90%;
 }
 
 #call-putin-page {
@@ -231,7 +232,7 @@ table tr td:last-child {
     animation-delay: 7.5s;
 }
 
-
+/* 
 
 @media (max-width: 414px) {
     html {
@@ -247,4 +248,4 @@ table tr td:last-child {
         margin: .4rem auto .2rem;
     }
 }
-
+ */
