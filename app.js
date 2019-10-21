@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let page of pages) {
         page.style.display = 'none';
     }
-    startPage.style.display = 'block';
+    startPage.style.display = 'grid';
     chooseOpponent();
     startDefaults();
 });
@@ -43,7 +43,7 @@ nextBtn.addEventListener('click', () => {
     if (opponent == undefined) {
         return;
     }
-    document.querySelector(`#${opponent}-page`).style.display = 'block';
+    document.querySelector(`#${opponent}-page`).style.display = 'grid';
     startPage.style.display = 'none';
     choosePlayer();
     playGameBtn();
@@ -72,7 +72,7 @@ function playGameBtn() {
     for (let btn of btns) {
         btn.addEventListener('click', () => {
             document.querySelector(`#${opponent}-page`).style.display = 'none';
-            gamePage.style.display = 'block';
+            gamePage.style.display = 'grid';
             whoseOnFirst();
         })
     }
@@ -367,7 +367,7 @@ function callPutin() {
     }, 6250);
     setTimeout(() => {
         callPutinPage.style.display = 'none';
-        gamePage.style.display = 'block';
+        gamePage.style.display = 'grid';
         return opponent = 'trump', board = ['X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X'], updateBoardUI(), checkWins();
     }, 8250)
 }
@@ -383,5 +383,5 @@ const einsteinComments = {
     2: `"If you can't explain it simply, you don't understand it well enough."`,
     3: `"Unthinking respect for authority is the greatest enemy of truth."`,
     4: `"Don’t listen to the person who has the answers; listen to the person who has the questions."`,
-    5: `"The world is in greater peril from those who tolerate or encourage evil than from those who actually commit it."`
+    5: `"The only thing more dangerous than ignorance is arrogance."`
 }
