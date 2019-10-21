@@ -1,3 +1,15 @@
+:root {
+    --yellow: #ffc600;
+    --lightblue: #118888;
+    --lighterblue: #04afbf;
+    --niteblue: #282849;
+    --pinkish: #e07;
+    --purple: #519;
+    --grey: #666;
+    --black: #272727;
+}
+
+
 html {
     font-size: 28px;
 }
@@ -6,11 +18,12 @@ html {
     margin: 0 auto;
     text-align: center;
     font-family: 'Londrina Solid', Arial, Helvetica, sans-serif;
-    color: #188;
+    color: var(--lightblue);
     box-sizing: border-box;
 }
 
 .page-container {
+    display: grid;
     margin-top: .5rem;
     position: relative;
     width: 98vw;
@@ -18,20 +31,15 @@ html {
     /* room for top/btm mobile nav chrome safari */
     height: 85vh;
     max-height: 630px;
-    display: grid;
-    grid-template-rows: 1fr 2fr 1fr;
 }
 
-#start-page {
-    grid-template-rows: 2fr 2fr 1fr;
+#start-page,
+.choose-page {
+    grid-template-rows: auto 5fr 1fr;
 }
 
 #game-page {
-    grid-template-rows: 3fr 3fr 1fr;
-}
-
-.choose-page {
-    grid-template-rows: 500px 300px 1fr;
+    grid-template-rows: auto 8fr 1fr;
 }
 
 .two-col-container {
@@ -46,12 +54,12 @@ html {
 h1,
 h2 {
     font-family: 'Londrina Outline', Arial, Helvetica, sans-serif;
-    color: #e07;
+    color: var(--pinkish);
 }
 
 h1 {
-    font-size: 4.5rem;
-    line-height: 4rem;
+    font-size: 5rem;
+    line-height: 5rem;
 }
 
 h2 {
@@ -71,20 +79,17 @@ h4 {
 
 h5 {
     line-height: .8rem;
-    color: #519;
+    color: var(--purple);
 }
 
 p {
-    color: #555;
+    color: var(--grey);
     margin: 1rem;
 }
 
 img {
     border-radius: 50%;
-}
-
-.in-game-img {
-    width: 27%;
+    width: 100px;
 }
 
 .top-margin3 {
@@ -98,25 +103,17 @@ img {
     border-radius: 5%;
 }
 
-#einstein-btn img,
-#trump-btn img {
-    width: 80%;
-}
-
 .play-btn,
 #play-again-btn {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #fc0;
-    border: #777 solid .3px;
+    background: var(--yellow);
+    border: var(--gray) solid .3px;
     padding: 5px 10px;
     width: auto;
+    height: 35px;
     margin-top: .5rem;
     border-radius: 5%;
     font-size: .65rem;
-    color: #e07;
+    color: var(--pinkish);
     cursor: pointer;
 }
 
@@ -127,12 +124,12 @@ img {
     font-size: 2.8rem;
     cursor: pointer;
     border-radius: 3%;
-    border: solid #fc0 .5px;
+    border: solid var(--yellow) .5px;
     margin: 1rem auto;
 }
 
 #human-O {
-    background: #fc0;
+    background: var(--yellow);
 }
 
 table {
@@ -148,8 +145,8 @@ td {
     cursor: pointer;
     font-size: 2.8rem;
     line-height: 2rem;
-    color: #188;
-    border: solid #fc0 4px;
+    color: var(--lightblue);
+    border: solid var(--yellow) 4px;
 }
 
 table tr:first-child td {
@@ -170,7 +167,7 @@ table tr td:last-child {
 
 #winner-msg {
     font-size: 1rem;
-    color: #04afbf;
+    color: var(--lighterblue);
     margin: .75rem 0 .25rem;
 }
 
@@ -178,11 +175,11 @@ table tr td:last-child {
     margin: 0 .25rem .5rem;
     font-size: .75rem;
     line-height: .75rem;
-    color: #519;
+    color: var(--purple);
 }
 
 #call-putin-page {
-    background: #282849;
+    background: var(--niteblue);
 }
 
 #trump-phone,
@@ -205,6 +202,7 @@ table tr td:last-child {
     html {
         font-size: 24px;
     }
+
     .page-container {
         height: 85vh;
     }
