@@ -22,7 +22,6 @@ html {
 }
 
 .page-container {
-    position: relative;
     /* display: grid; declared in JS display none/grid */
     margin-top: .5rem;
     position: relative;
@@ -106,10 +105,6 @@ img {
 
 .play-btn,
 #play-again-btn {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
     background: var(--yellow);
     border: var(--gray) solid .3px;
     padding: 5px 10px;
