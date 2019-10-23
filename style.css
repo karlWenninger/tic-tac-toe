@@ -34,13 +34,14 @@ html {
 
 #start-page,
 #game-page, .choose-page {
-    grid-template-rows: auto 8fr 1fr;
+    grid-template-rows: auto 1fr auto;
 }
 
 .two-col-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     text-align: center;
+    margin: 10px auto;
 }
 
 .span-2-row {
@@ -63,8 +64,9 @@ h2 {
 }
 
 h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0;
+    font-size: 1.6rem;
+    line-height: 1.4rem;
+    margin: 1rem auto 0;
 }
 
 h4 {
@@ -94,12 +96,16 @@ img {
 .top-margin3 {
     margin-top: 3rem;
 }
+.top-margin5 {
+    margin-top: 5rem;
+}
 
 #einstein-btn,
 #trump-btn {
     padding: 10px;
+    /* margin-bottom: 10px; */
     width: 80%;
-    height: 90%;
+    height: 93%;
     border-radius: 5%;
 }
 
@@ -107,9 +113,9 @@ img {
 #play-again-btn {
     background: var(--yellow);
     border: var(--gray) solid .3px;
-    padding: 5px 10px;
+    padding: 2px 10px;
     width: auto;
-    height: 35px;
+    height: 25px;
     border-radius: 5%;
     font-size: .65rem;
     color: var(--pinkish);
@@ -122,9 +128,10 @@ img {
     width: 90px;
     height: 90px;
     font-size: 2.8rem;
-    cursor: pointer;
+    margin-top: 0;
     border-radius: 3%;
     border: solid var(--yellow) .5px;
+    cursor: pointer;
 }
 
 #human-O {
