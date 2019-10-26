@@ -5,7 +5,7 @@
 
 ## Tic-Tac-Toe
 
-A Tic-Tac-Toe game with a twist: play against 'oppoenents' Albert Einstein or Donald Trump. Einstein is unbeateable—he wins or you tie. The Trump 'player' switches between the unbeatable algorithm and completely random moves. As a result Trump is erratic and unpredictable. If he doesn't win he may try to rig the results...
+A Tic-Tac-Toe game with a twist: play against 'opponents' Albert Einstein or Donald Trump. Einstein is unbeatable—he wins or you tie. The Trump 'player' switches between the unbeatable algorithm and completely random moves. As a result Trump is erratic and unpredictable. Funny things happen If he doesn't win...
 
 
 ## Built With
